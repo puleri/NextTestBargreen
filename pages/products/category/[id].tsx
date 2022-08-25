@@ -10,6 +10,7 @@ interface CategoryProps {
 }
 
 function Category(props: CategoryProps): any {
+    console.log(props, "categoryprops")
     const { name, products } = props;
 
     return (

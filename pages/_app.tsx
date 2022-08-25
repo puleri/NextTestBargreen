@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import store from 'store';
 import { Provider, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { getAndSetCategories, login } from 'store/slices/app';
 import Layout from '@/components/Layout/Layout';
 
@@ -16,12 +16,12 @@ function DataWrapper({ children }: any) {
 }
 
 function App({ Component, pageProps }) {
-
+  const [currentUser, setCurrentUser] = useState('')
   return (
     <Provider store={store}>
       <DataWrapper>
         <Layout>
-          <Component {...pageProps} />
+          <Component currentUser={currentUser} setCurrentUser={setCurrentUser} {...pageProps} />
         </Layout>
       </DataWrapper>
     </Provider>

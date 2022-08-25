@@ -7,8 +7,9 @@ interface CatalogProps {
 }
 
 function Catalog(props: CatalogProps) {
+    console.log("catalog props ", props)
     const { name, products } = props;
-
+    
     return (
         <div className={classes.catalog}>
             <div className={classes.catalogHeader}>

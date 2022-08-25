@@ -14,7 +14,21 @@ export const appSlice = createSlice({
 
 export const { setCategories } = appSlice.actions
 
-export const login = (username, password) => (dispatch) => {
+export const login = (username:string, password:string) => {
+  console.log('logging in...')
+  
+  fetch('https://fakestoreapi.com/auth/login',{
+            method:'POST',
+            mode: 'no-cors',
+            body:JSON.stringify({
+                username: "johnd",
+                password: "m38rmF$"
+            })
+        })
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+            .catch(e => console.log(e))
+
   // TODO: implement a mock login flow by storing a token from 'https://fakestoreapi.com/auth/login'
 }
 
